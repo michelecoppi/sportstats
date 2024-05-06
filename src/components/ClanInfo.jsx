@@ -186,7 +186,7 @@ const ClanInfo = () => {
   }
 
   const showInvites = () => {
-    if (user.id === clan.idBoss) {
+    if (user.id === clan.idBoss || clan.type === "Public") {
       setShowInfo(false)
       setShowClanInvites(true)
     } else {
