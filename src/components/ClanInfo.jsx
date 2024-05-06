@@ -412,6 +412,10 @@ const ClanInfo = () => {
   }
 
   const handlePromoteToBoss = async (id) => {
+    const confirmed = window.confirm("Are you sure you want to promote this player to boss?");
+    if (!confirmed) {
+      return;
+    }
     if (clan.idBoss !== user.id) {
       setErrorMessage("You are not the boss. You can't promote anyone.")
       return;
