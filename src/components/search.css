@@ -1,0 +1,14 @@
+.search {
+    width: 100px;
+    height: 40px;
+    margin-left: 50px;
+}
+
+@media only screen and (max-width:450px) {
+    .search {
+        width: 80px;
+        height: 35px;
+        margin-left: 20px;
+
+    }
+}

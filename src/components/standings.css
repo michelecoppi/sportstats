@@ -1,0 +1,23 @@
+.tbody-standings tr:nth-child(n+1):nth-child(-n+6) {
+    background-color: rgba(19, 118, 28, 0.4);
+  }
+  .tr-standings:nth-child(n+7):nth-child(-n+10) {
+    background-color: rgba(52, 249, 3, 0.4);
+  }
+  caption {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .squarePlayoff {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(19, 118, 28, 0.4);
+  }
+  .squarePlayin{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(52, 249, 3, 0.4);
+  }
