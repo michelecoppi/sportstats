@@ -26,6 +26,7 @@ To run this project locally, you'll need to install the project dependencies and
 npm install
 npm start
 ```
+Please note that this project uses Firebase for backend services, so you'll need to set up a Firebase project and configure the Firebase SDK with your project-specific details. You can find more information on how to set up Firebase in the [Firebase documentation](https://firebase.google.com/docs/web/setup).
 
 ### Contributing
 Contributions are welcome! Please read the [CONTRIBUTING](CONTRIBUTING.md) guide to get started.
