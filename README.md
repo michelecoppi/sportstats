@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# SportStats
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SportStats is a comprehensive platform for basketball and esports enthusiasts. It provides a wide range of features and services to enhance your gaming experience.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Account Creation
+Users can create an account to take full advantage of all the features offered by SportStats. With an account, users can create their own clan, bet on matches, and climb the rankings to become the best gamer around. Account management is handled in `src/components/Account.jsx`.
 
-### `yarn start`
+### Matches Page
+The Matches page displays the latest upcoming events and competitions. It offers a variety of matches, from casual play to competitive tournaments. The data for matches is fetched from external APIs in the `functions/index.js` file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Players Page
+The Players page provides comprehensive stats and profiles for all current NBA players, from seasoned veterans to rising stars. Users can use the search function to easily find the player they're looking for and access their stats, highlights, and more.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Teams Page
+The Teams page is a go-to source for all things NBA teams. It provides team stats, player rosters, upcoming games, and more. Users can follow their favorite team or discover a new one with the comprehensive database of all 30 NBA teams.
 
-### `yarn test`
+### Clans Page
+The Clans page allows users to find the perfect clan to join. They can create or join a clan to connect with other gamers and compete in matches. Clans are a great way to make new friends and improve gaming skills.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the Project
+To run this project locally, you'll need to install the project dependencies and then start the development server. You can do this by running the following commands in your terminal:
 
-### `yarn build`
+```sh
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Contributing
+Contributions are welcome! Please read the [CONTRIBUTING](CONTRIBUTING.md) guide to get started.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
