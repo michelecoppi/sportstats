@@ -197,10 +197,9 @@ const Account = () => {
         return match.sport === "basket" 
           ? {
               method: 'GET',
-              url: `https://free-nba.p.rapidapi.com/games/${match.gameId}`,
+              url: `https://api.balldontlie.io/v1/games${match.gameId}`,
               headers: {
-                'X-RapidAPI-Key': 'a3a0e5e106msh9efea133cfae11ap193047jsn9bc0061cb2e0',
-                'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
+                Authorization: process.env.REACT_APP_AUTHORIZATION_KEY,
               }
             }
           : {
@@ -219,7 +218,6 @@ const Account = () => {
           if(match.sport === "basket"){
           if (response.data.id == match.gameId && response.data.status === 'Final') {
             if (((match.winningTeam == 1) && (response.data.home_team_score > response.data.visitor_team_score)) || ((match.winningTeam == 2) && (response.data.home_team_score < response.data.visitor_team_score))) {
-              const dateGame= new Date(match.date)
               
               win += (parseInt(match.bet) * 2);
               

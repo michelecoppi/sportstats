@@ -42,7 +42,7 @@ const Bet = () => {
         
         const docRef = doc(firestore, "users", idBet)
         const payload2 = { coins: ((coins.coins) - bet)}
-        const payload = { email: user.email, bet: bet, gameId: id, match: `${home} vs ${away}`, winningTeam: team, date: dateMatch, sport:"basket" }
+        const payload = { email: user.email, bet: bet, gameId: id, match: `${home} vs ${away}`, winningTeam: team, date: new Date(dateMatch).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }), sport:"basket" }
         await addDoc(collection(firestore, "bet"), payload);
         await updateDoc(docRef, payload2);
       

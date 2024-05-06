@@ -53,9 +53,8 @@ const Upcomingmathces = () => {
           
             
             const date = new Date(game.status);
-            
-            //const currentHours = date.getHours();
-            //date.setHours(currentHours + offset);
+            const utcString = date.toISOString();
+            const utcDate = new Date(utcString);
     
             const options = {
               year: 'numeric',
@@ -65,7 +64,7 @@ const Upcomingmathces = () => {
               minute: 'numeric',
             };
             
-            const dateFormatted = date.toLocaleDateString(undefined, options);
+            const dateFormatted = utcDate.toLocaleDateString(undefined, options);
             const dateTime = dateFormatted.split(', ');
            
             data.push(dateTime[0]);
