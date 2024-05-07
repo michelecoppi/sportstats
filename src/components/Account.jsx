@@ -197,7 +197,7 @@ const Account = () => {
         return match.sport === "basket" 
           ? {
               method: 'GET',
-              url: `https://api.balldontlie.io/v1/games${match.gameId}`,
+              url: `https://api.balldontlie.io/v1/games/${match.gameId}`,
               headers: {
                 Authorization: process.env.REACT_APP_AUTHORIZATION_KEY,
               }
