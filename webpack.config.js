@@ -1,4 +1,5 @@
 const path = require('path');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -7,18 +8,8 @@ module.exports = {
           components: path.resolve(__dirname, 'src/components')
         },
         fallback : {
-          "buffer": require.resolve("buffer/"),
-          "http": require.resolve("stream-http"),
-          "https": require.resolve("https-browserify"),
-          "timers": require.resolve("timers-browserify"),
-          "path": require.resolve("path-browserify"),
-          "stream": require.resolve("stream-browserify"),
-          "crypto": require.resolve("crypto-browserify"),
-          "assert": require.resolve("assert/"),
-          "zlib": require.resolve("browserify-zlib"),
-          "util": require.resolve("util/"),
-          "os": require.resolve("os-browserify/browser"),
-         "process": require.resolve("process/browser"),
+          "https": false,
+          "http": false,
           fs : false,
           net : false,
           tls : false,
@@ -56,6 +47,7 @@ module.exports = {
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         // ...
       }),
+      new NodePolyfillPlugin(),
     ],
   
   };

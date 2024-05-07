@@ -214,10 +214,11 @@ const Account = () => {
       
         for (let i = 0; i < responses.length; i++) {
           const response = responses[i];
+          console.log(response.data)
           const match = matches[i];
           if(match.sport === "basket"){
-          if (response.data.id == match.gameId && response.data.status === 'Final') {
-            if (((match.winningTeam == 1) && (response.data.home_team_score > response.data.visitor_team_score)) || ((match.winningTeam == 2) && (response.data.home_team_score < response.data.visitor_team_score))) {
+          if (response.data.data.id == match.gameId && response.data.data.status === 'Final') {
+            if (((match.winningTeam == 1) && (response.data.data.home_team_score > response.data.data.visitor_team_score)) || ((match.winningTeam == 2) && (response.data.data.home_team_score < response.data.data.visitor_team_score))) {
               
               win += (parseInt(match.bet) * 2);
               
