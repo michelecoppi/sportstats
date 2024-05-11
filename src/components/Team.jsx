@@ -96,7 +96,7 @@ const Team = (props) => {
           <p className='text-center'>Division: {team.division}</p>
           <p className='text-center'>Abbreviation: {team.abbreviation}</p>
           {games.length > 0 ? <div className='text-center'>     {games.map((game) => (
-            <p key={game.id}>The team is playing against {team.full_name === games[0].home_team.full_name ? games[0].visitor_team.full_name : games[0].home_team.full_name} right now! Click <Link to={`/match/${games[0].id}/${games[0].home_team.id}/${games[0].visitor_team.id}`}>here</Link> to see the stats </p>
+            <p key={game.id}>The team is playing against {team.full_name === games[0].home_team.full_name ? games[0].visitor_team.full_name : games[0].home_team.full_name} right now! Click <Link to={`/match/${games[0].id}/${games[0].home_team.id}/${games[0].visitor_team.id}/${games[0].home_team.full_name}/${games[0].visitor_team.full_name}`}>here</Link> to see the stats </p>
           ))} </div> : <p></p>}
         </div>
       )}
