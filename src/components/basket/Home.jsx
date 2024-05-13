@@ -33,27 +33,27 @@ const Home = () => {
 
   return (
     <div className='text-center'>
-     
-  
-      <h1 className=" h1-homepage" style={{marginTop:"10px"}}>Welcome to my NBA website!</h1>
+
+
+      <h1 className=" h1-homepage" style={{ marginTop: "10px" }}>Welcome to my NBA website!</h1>
       <div className='logo'></div>
       <h1 className=" h1-homepage">News</h1>
 
-      {news.length === 0 ? <Spinner/> : (
-  <Carousel style={{ margin: 'auto', maxWidth: '600px' }}>
-    {news.map((item, index) => (
-      <Carousel.Item className="carousel-item" key={index}>
-        <img className="d-block " src={item.enclosure?.url} alt="basket news"/>
-        <Carousel.Caption>
-          <h4 className='title-carousel'>{item.title}</h4>
-          <p className='p-carousel'>{item.content}</p>
-          <a href={item.link} target="_blank" rel="noreferrer" className="p-carousel">Read more</a>
-        </Carousel.Caption>
-      </Carousel.Item>
-    ))}
-  </Carousel>
-)}
-    
+      {news.length === 0 ? <Spinner /> : (
+        <Carousel style={{ margin: 'auto', maxWidth: '600px'}}>
+          {news.map((item, index) => (
+            <Carousel.Item className="carousel-item" key={index}>
+              <img className="d-block max-dim" src={item.enclosure?.url} alt="basket news" />
+              <Carousel.Caption>
+                <h4 className='title-carousel'>{item.title}</h4>
+                <p className='p-carousel'>{item.content}</p>
+                <a href={item.link} target="_blank" rel="noreferrer" className="p-carousel">Read more</a>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      )}
+
       <h2 className=" h1-homepage">Nba Stats </h2>
       <p className=" p-homepage">Welcome to our gaming nba platform, where you can find all the latest news and updates about your favorite games. We offer a wide range of features and services to enhance your gaming experience, including account creation, clan creation, and a leaderboard of the best betters. Join our community today and start playing with gamers from all around the world.</p>
       <h2 className=" h1-homepage">Account Page</h2>
@@ -67,10 +67,10 @@ const Home = () => {
       <h2 className=" h1-homepage">Clans Page</h2>
       <p className=" p-homepage" >Looking for a clan to join? Check out our Clans page to find the perfect clan for you. Create or join a clan to connect with other gamers and compete in matches. Clans are a great way to make new friends and improve your gaming skills. Join a clan today and start playing with other gamers from around the world.</p>
       <h2 className=" h1-homepage">Standings Page</h2>
-      <p className=" p-homepage" style={{marginBottom:"20px"}}>Check out our standings page </p>
-      <BottomBar/>
+      <p className=" p-homepage" style={{ marginBottom: "20px" }}>Check out our standings page </p>
+      <BottomBar />
     </div>
-  
+
   );
 };
 
