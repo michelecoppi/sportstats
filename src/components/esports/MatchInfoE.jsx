@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import '../pallino.css'
-import { UserAuth } from '../context/AuthContext'
-import { firestore } from '../firebase'
+import '../basket/pallino.css'
+import { UserAuth } from '../../context/AuthContext'
+import { firestore } from '../../firebase'
 import { onSnapshot, collection, addDoc, updateDoc, doc } from 'firebase/firestore';
 import { Alert } from '@mui/material';
 

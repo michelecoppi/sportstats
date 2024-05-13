@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import Parser from 'rss-parser';
-import BottomBar from './BottomBar';
+import BottomBar from '../BottomBar';
 import { Carousel } from 'react-bootstrap';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 import { Link } from 'react-router-dom';
 import './homepage.css'
 

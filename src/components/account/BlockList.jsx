@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { collection, onSnapshot, deleteDoc, doc } from 'firebase/firestore'
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase'
 import { useLocation } from 'react-router-dom'
 
 function BlockList() {

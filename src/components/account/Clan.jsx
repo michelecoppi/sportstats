@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { onSnapshot, collection, updateDoc, addDoc, doc, deleteDoc } from 'firebase/firestore'
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase.js'
 import { Form, Button, Card, Container, CardGroup } from 'react-bootstrap';
-import {storage } from '../firebase'
+import {storage } from '../../firebase.js'
 import { uploadBytes, getDownloadURL, ref } from 'firebase/storage';
-import Spinner from './Spinner.jsx'
+import Spinner from '../Spinner.jsx'
 
 
 import { Alert } from '@mui/material';

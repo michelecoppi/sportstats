@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { onSnapshot, collection, addDoc } from 'firebase/firestore';
 
-import { firestore } from '../firebase';
+import { firestore } from '../../firebase';
 
 
 

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import BottomBar from './BottomBar';
-import Spinner from './Spinner';
+import BottomBar from '../BottomBar';
+import Spinner from '../Spinner';
 import xml2js from 'xml2js';
 import { Carousel } from 'react-bootstrap';
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase'
 import { useNavigate,useLocation } from 'react-router-dom';
-import { UserAuth } from '../context/AuthContext'
+import { UserAuth } from '../../context/AuthContext'
 import { onSnapshot, collection, addDoc, doc, updateDoc } from 'firebase/firestore';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 import './backbutton.css';
 
 

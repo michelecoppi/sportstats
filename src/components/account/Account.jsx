@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { UserAuth } from '../context/AuthContext'
+import { UserAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase'
 import { onSnapshot, collection, doc, setDoc, deleteDoc, updateDoc } from 'firebase/firestore';
 import axios from 'axios';
-import { storage } from '../firebase';
+import { storage } from '../../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Avatar } from '@mui/material';
 import { Alert } from '@mui/material';
 import './account.css';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 
 
 

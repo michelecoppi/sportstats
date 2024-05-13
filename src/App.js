@@ -1,43 +1,47 @@
 
 import React from 'react';
 import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
-import Home from './components/Home';
-import Players from './components/Players';
-import Standings from './components/Standings';
-import Teams from './components/Teams';
-import Team from './components/Team';
-import Matches from './components/Matches'
-import Livematches from './components/Livematches';
-import Match from './components/Match';
-import Player from './components/Player';
+
+import Home from './components/basket/Home';
+import Players from './components/basket/Players';
+import Standings from './components/basket/Standings';
+import Teams from './components/basket/Teams';
+import Team from './components/basket/Team';
+import Matches from './components/basket/Matches'
+import Livematches from './components/basket/Livematches';
+import Match from './components/basket/Match';
+import Player from './components/basket/Player';
+import Bet from './components/basket/Bet';
+
+import MatchesEsports from './components/esports/MatchesEsports';
+import HomeEsports from './components/esports/HomeEsports';
+import TeamsEsports from './components/esports/TeamsEsports';
+import PlayersEsports from './components/esports/PlayersEsports';
+import TournamentLive from './components/esports/TournamentLive';
+import MatchInfoE from './components/esports/MatchInfoE';
+import TeamEsports from './components/esports/TeamEsports';
+import PlayerE from './components/esports/PlayerE';
+
+import Signup from './components/account/Signup';
+import Signin from './components/account/Signin';
+import Passwordreset from './components/account/Passwordreset';
+import Account from './components/account/Account';
+import Palmares from './components/account/Palmares';
+import Chat from './components/account/Chat';
+import Privatechat from './components/account/Privatechat';
+import Generalchat from './components/account/Generalchat';
+import ViewAccount from './components/account/ViewAccount';
+import SearchUsers from './components/account/SearchUsers';
+import BlockList from './components/account/BlockList';
+import Clan from './components/account/Clan';
+import ClanInfo from './components/account/ClanInfo';
+import Leaderboard from './components/account/Leaderboard';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
-import Signup from './components/Signup';
-import Signin from './components/Signin';
-import Passwordreset from './components/Passwordreset';
-import Account from './components/Account';
-import Bet from './components/Bet';
-import Leaderboard from './components/Leaderboard';
-import Palmares from './components/Palmares';
-import Chat from './components/Chat';
-import Privatechat from './components/Privatechat';
-import Generalchat from './components/Generalchat';
-import ViewAccount from './components/ViewAccount';
-import SearchUsers from './components/SearchUsers';
 import ProtectedRoute from './components/ProtectedRoute';
 import Utils from './components/Utils';
 import Contactus from './components/Contactus';
-import BlockList from './components/BlockList';
-import MatchesEsports from './components/MatchesEsports';
-import HomeEsports from './components/HomeEsports';
-import TeamsEsports from './components/TeamsEsports';
-import PlayersEsports from './components/PlayersEsports';
-import TournamentLive from './components/TournamentLive';
-import MatchInfoE from './components/MatchInfoE';
-import TeamEsports from './components/TeamEsports';
-import PlayerE from './components/PlayerE';
-import Clan from './components/Clan';
-import ClanInfo from './components/ClanInfo';
 import { AuthContextProvider } from './context/AuthContext';
 
 

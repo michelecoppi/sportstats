@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {firestore} from '../firebase'
+import {firestore} from '../../firebase'
 import { onSnapshot,collection } from 'firebase/firestore'
-import { UserAuth } from '../context/AuthContext'
+import { UserAuth } from '../../context/AuthContext'
 import { Avatar, Grid } from '@mui/material';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 
 
 

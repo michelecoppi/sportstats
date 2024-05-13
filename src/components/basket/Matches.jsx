@@ -1,7 +1,7 @@
 import React from 'react'
 import Livematches from './Livematches'
 import Upcomingmatches from './Upcomingmatches'
-import Spinner from './Spinner'
+import Spinner from '../Spinner'
 
 function Matches() {
   const liveMatches = Livematches().props.children[1];

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { Avatar } from '@mui/material';
-import '../pallino.css'
-import Spinner from "./Spinner";
+import './pallino.css'
+import Spinner from "../Spinner";
 
 const Upcomingmathces = () => {
   const [games, setGames] = useState([]);

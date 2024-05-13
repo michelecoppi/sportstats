@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 
 const Teams = () => {
     const [error, setError] = useState('');

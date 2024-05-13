@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom'
-import {UserAuth} from '../context/AuthContext'
-import {firestore } from '../firebase'
+import {UserAuth} from '../../context/AuthContext'
+import {firestore } from '../../firebase'
 import { addDoc, collection  } from "firebase/firestore";
 import validator from 'validator';
 

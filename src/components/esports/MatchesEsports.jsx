@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 
 const cardStyle = {
   width: "18rem",
@@ -112,7 +112,7 @@ const MatchesEsports = () => {
                <div className='btn btn-primary' type="button"  onClick={() => handleInfo(match.id)} style={{margin:"20px"}}>view Info</div>
                 <div className="card-footer text-muted">
                   <p className="card-text">
-                    Live now
+                  <div className="dot"></div> Live now
                   </p>
 
                 </div>

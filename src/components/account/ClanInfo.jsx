@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { onSnapshot, collection, doc, updateDoc, getDocs, deleteDoc, addDoc, getDoc, where, query } from 'firebase/firestore'
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase'
 import { Button, Card, Container, Table, Form, CardGroup } from 'react-bootstrap';
 import { Alert, Avatar } from '@mui/material';
 import { ref, deleteObject, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { storage } from '../firebase'
-import Spinner from './Spinner'
+import { storage } from '../../firebase'
+import Spinner from '../Spinner'
 
 const ClanInfo = () => {
   const locate = useLocation()

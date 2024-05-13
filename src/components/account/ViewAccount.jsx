@@ -1,10 +1,10 @@
 import React, { useState, useEffect,  } from 'react';
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase'
 import { onSnapshot, collection, query } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 import { Avatar } from '@mui/material';
-import { UserAuth } from '../context/AuthContext';
-import Spinner from './Spinner';
+import { UserAuth } from '../../context/AuthContext';
+import Spinner from '../Spinner';
 
 const ViewAccount =() => {
   const { username } = useParams();

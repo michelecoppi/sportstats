@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { onSnapshot, collection, query } from 'firebase/firestore';
-import { firestore } from '../firebase'
+import { firestore } from '../../firebase'
 import { Avatar } from '@mui/material';
 import './style.css'
 function Leaderboard() {
