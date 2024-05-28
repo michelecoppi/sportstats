@@ -35,8 +35,6 @@ const Team = (props) => {
 
         setTeam(response.data.data);
         setError('');
-
-
       })
       .catch(error => {
         setError("An error has occurred, please try again later");

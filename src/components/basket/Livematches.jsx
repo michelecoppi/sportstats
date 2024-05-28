@@ -31,11 +31,8 @@ const Livematches =() => {
       axios
         .request(options)
         .then((response) => {
-          console.log(response)
            let games = response.data.data.filter(game => game.status === "1st Qtr" || game.status === "2nd Qtr" || game.status==="3rd Qtr" ||game.status==="4th Qtr");
           setGames(games);
-          
-         
           setError(""); 
         })
         .catch((error) => {

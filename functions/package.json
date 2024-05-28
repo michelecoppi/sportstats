@@ -10,15 +10,15 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "16"
+    "node": "20"
   },
   "main": "index.js",
   "dependencies": {
+    "@google/generative-ai": "^0.11.4",
     "cors": "^2.8.5",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.24.1",
-    "twitter-lite": "^1.1.0",
-    "xml2js": "^0.4.23"
+    "twitter-lite": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^8.9.0",

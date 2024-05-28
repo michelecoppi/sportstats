@@ -1,9 +1,11 @@
 const functions = require("firebase-functions");
 const fetch = require("node-fetch");
 const admin = require("firebase-admin");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 const bearerToken = functions.config().someservice.bearer;
 const api_key=functions.config().someservice.api;
 const bearer_esport = functions.config().someservice.bearer_esport;
+const gemini_api_key= functions.config().someservice.gemini_api_key
 
 const config = {
   apiKey: functions.config().someservice.firebase_api_key,
@@ -15,6 +17,31 @@ const config = {
   appId: functions.config().someservice.firebase_app_id,
 };
 admin.initializeApp(config);
+exports.getGeminiResponse = functions.region("europe-west1")
+  .https.onRequest(function (req, res) {
+    try {
+      const genAI = new GoogleGenerativeAI(gemini_api_key);
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const prompt = req.query.input; 
+
+      model.generateContent(prompt)
+        .then(result => result.response.text())
+        .then(text => {
+          res.set("Access-Control-Allow-Origin", "*");
+          res.status(200).send(text);
+        })
+        .catch(error => {
+          console.error("Error generating AI response", error);
+          res.set("Access-Control-Allow-Origin", "*");
+          res.status(500).send("Error generating AI response");
+        });
+
+    } catch (error) {
+      console.error("Error generating AI response", error);
+      res.set("Access-Control-Allow-Origin", "*");
+      res.status(500).send("Error generating AI response");
+    }
+  });
 
 exports.getTournaments = functions.region("europe-west1")
     .https.onRequest(function(req, res) {

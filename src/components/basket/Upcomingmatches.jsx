@@ -40,10 +40,6 @@ const Upcomingmathces = () => {
       .request(options)
       .then((response) => {
         let games = response.data.data.filter(game => game.status !== "1st Qtr" && game.status !== "2nd Qtr" && game.status !== "3rd Qtr" && game.status !== "4th Qtr" && game.status !== "Final");
-        
-        console.log(response)
-
-
         let data = [];
         let ora = [];
         games.sort((a, b) => new Date(a.date.slice(0, -14) + " " + a.status.slice(0, -3)) - new Date(b.date.slice(0, -14) + " " + b.status.slice(0, -3)));

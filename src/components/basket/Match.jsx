@@ -6,8 +6,9 @@ import './table.css';
 
 
 const Match = () => {
-  const { gameId, homeTeamId, visitorTeamId,homeTeamName,visitorTeamName } = useParams();
+  const { gameId, homeTeamId, visitorTeamId, homeTeamName, visitorTeamName } = useParams();
   const [players, setPlayers] = useState([]);
+  const [gameDescription, setGameDescription] = useState('');
 
   const [openPlayerIndex, setOpenPlayerIndex] = useState(-1);
 
@@ -24,6 +25,40 @@ const Match = () => {
 
       // console.log(response.data.data)
       setPlayers(response.data.data);
+
+      function formatPlayer(player) {
+        return `${player.first_name} ${player.last_name} (${player.position})`;
+      }
+
+
+      function formatGame(game) {
+        return `Game of ${game.date}: ${game.home_team_score} - ${game.visitor_team_score}`;
+      }
+
+
+      function formatData(item) {
+        const player = formatPlayer(item.player);
+        const team = item.team.full_name;
+        const points = item.pts;
+        const rebounds = item.reb;
+        const assists = item.ast;
+        const game = formatGame(item.game);
+        return `${player} scored ${points} points, grabbed ${rebounds} rebounds and made ${assists} assist in the match ${team} (${game}).`;
+      }
+      const inputData = response.data.data.map(formatData).join('\n') + " generate a description of the match with all these stats without *";
+      const iaOptions = {
+        method: 'GET',
+        url: 'https://europe-west1-sportstats-42976.cloudfunctions.net/getGeminiResponse',
+        params: { input: inputData }
+      }
+
+      axios.request(iaOptions).then(function (response) {
+        console.log(response.data);
+        setGameDescription(response.data);
+      }).catch(function (error) {
+
+        console.error(error);
+      });
 
     }).catch(function (error) {
       console.error(error);
@@ -66,49 +101,53 @@ const Match = () => {
 
   return (
     <div className="container">
-    <div className="table-wrapper">
-      <div className="table-container" >
-        <div className="table-title">
-          {homeTeamName}
-          <Avatar src={"/images/logo" + homeTeamId + ".png"} sx={{ width: 100, height: 100 }} />
+      <div className="table-wrapper">
+        <div className="table-container" >
+          <div className="table-title">
+            {homeTeamName}
+            <Avatar src={"/images/logo" + homeTeamId + ".png"} sx={{ width: 100, height: 100 }} />
+          </div>
+          <table className="table table-sm table-responsive table-hover table-bordered">
+            <thead className='thead-dark'>
+              <tr>
+                <th className='text-center'>Name</th>
+                <th className='text-center'>Points</th>
+                <th className='text-center'>Assists</th>
+                <th className='text-center'>Rebounds</th>
+                <th className='text-center'>Minutes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {players.filter(player => player.min !== "00").sort((a, b) => b.pts - a.pts).map(player => renderPlayerInfo(player, homeTeamId))}
+            </tbody>
+          </table>
         </div>
-        <table className="table table-sm table-responsive table-hover table-bordered">
-          <thead className='thead-dark'>
-            <tr>
-              <th className='text-center'>Name</th>
-              <th className='text-center'>Points</th>
-              <th className='text-center'>Assists</th>
-              <th className='text-center'>Rebounds</th>
-              <th className='text-center'>Minutes</th>
-            </tr>
-          </thead>
-          <tbody>
-          {players.filter(player => player.min !== "00").sort((a, b) => b.pts - a.pts).map(player => renderPlayerInfo(player, homeTeamId))}
-          </tbody>
-        </table>
+
+        <div className="table-container" >
+          <div className="table-title">
+            <Avatar src={"/images/logo" + visitorTeamId + ".png"} sx={{ width: 100, height: 100 }} />
+            {visitorTeamName}
+          </div>
+          <table className="table table-sm table-responsive table-hover table-bordered">
+            <thead className='thead-dark'>
+              <tr>
+                <th className='text-center'>Name</th>
+                <th className='text-center'>Points</th>
+                <th className='text-center'>Assists</th>
+                <th className='text-center'>Rebounds</th>
+                <th className='text-center'>Minutes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {players.filter(player => player.min !== "00").sort((a, b) => b.pts - a.pts).map(player => renderPlayerInfo(player, visitorTeamId))}
+            </tbody>
+          </table>
+        </div>
       </div>
-     
-      <div className="table-container" >
-       <div className="table-title">
-       <Avatar src={"/images/logo" + visitorTeamId + ".png"} sx={{ width: 100, height: 100 }} />
-      {visitorTeamName}
-       </div>
-        <table className="table table-sm table-responsive table-hover table-bordered">
-          <thead className='thead-dark'>
-            <tr>
-              <th className='text-center'>Name</th>
-              <th className='text-center'>Points</th>
-              <th className='text-center'>Assists</th>
-              <th className='text-center'>Rebounds</th>
-              <th className='text-center'>Minutes</th>
-            </tr>
-          </thead>
-          <tbody>
-          {players.filter(player => player.min !== "00").sort((a, b) => b.pts - a.pts).map(player => renderPlayerInfo(player, visitorTeamId))}
-          </tbody>
-        </table>
+      <div className=" text-center game-description">
+        <h3>Game Description</h3>
+        <p>{gameDescription}</p>
       </div>
-    </div>
     </div>
   )
 }
