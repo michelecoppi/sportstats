@@ -22,6 +22,14 @@
     line-height: 1.5;
     margin-bottom: 20px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .p-homepage {
+        padding-left: 10px; 
+        padding-right: 10px;
+    }
+}
+
   .title-carousel {
     font-family: 'Changa One', cursive;
     line-height: 1.5;
