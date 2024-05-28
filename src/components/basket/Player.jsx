@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Spinner from '../Spinner.jsx';
 import axios from 'axios';
 
 const Player = () => {
     const { id } = useParams();
     const [data, setData] = useState({});
     const [game, setGame] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -34,13 +36,21 @@ const Player = () => {
             } catch (error) {
                 setError("An error has occurred, please try again later");
                 console.error(error);
+            } finally {
+                setLoading(false);
             }
+            
         };
 
         fetchData();
     }, [id]);
 
     return (
+        <div>
+              {loading ? (
+        <Spinner />
+      ) : (
+        <>
         <div>
             <div>
                 <p className="text-center text-3xl font-bold text-gray-800">First Name: {data.first_name}</p>
@@ -70,6 +80,9 @@ const Player = () => {
                 </table>
             </div>
         </div>
+        </>
+        )}
+    </div>
     );
 };
 

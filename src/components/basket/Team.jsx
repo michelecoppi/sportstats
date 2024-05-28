@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Games from './Games';
+import Spinner from '../Spinner.jsx';
 import { Avatar } from '@mui/material';
 import axios from 'axios';
 
 const Team = (props) => {
 
   const [games, setGames] = useState([]);
-
   const { id } = useParams();
-
-
   const [team, setTeam] = useState({});
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const date = new Date().toISOString().split('T')[0];
     const dateY = new Date();
@@ -59,9 +59,10 @@ const Team = (props) => {
       .catch((error) => {
         setError("An error has occurred, please try again later");
         console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-
-
 
   }, [id]);
 
@@ -72,37 +73,46 @@ const Team = (props) => {
 
   return (
     <div>
-
-      {error && <p>{error}</p>}
-      {team && (
+    {loading ? (
+      <Spinner />
+    ) : (
+      <>
+        {error && <p>{error}</p>}
+        {team && (
+          <div>
+            <div className='row align-items-start container-fluid'>
+              <div className='col-3'>
+                <button className="btn btn-danger btn-back" onClick={handleBack}>Back</button>
+              </div>
+              <div className='col-6'>
+                <h1 className='text-center'>{team.full_name}</h1>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Avatar src={"/images/logo" + id + ".png"} sx={{ width: 100, height: 100 }} />
+            </div>
+            <p className='text-center'>City: {team.city}</p>
+            <p className='text-center'>Conference: {team.conference}</p>
+            <p className='text-center'>Division: {team.division}</p>
+            <p className='text-center'>Abbreviation: {team.abbreviation}</p>
+            {games.length > 0 ? (
+              <div className='text-center'>
+                {games.map((game) => (
+                  <p key={game.id}>
+                    The team is playing against {team.full_name === games[0].home_team.full_name ? games[0].visitor_team.full_name : games[0].home_team.full_name} right now! Click <Link to={`/match/${games[0].id}/${games[0].home_team.id}/${games[0].visitor_team.id}/${games[0].home_team.full_name}/${games[0].visitor_team.full_name}`}>here</Link> to see the stats
+                  </p>
+                ))}
+              </div>
+            ) : <p></p>}
+          </div>
+        )}
         <div>
-          <div className='row align-items-start container-fluid'>
-            <div className='col-3'>
-              <button className="btn btn-danger btn-back" onClick={handleBack}>Back</button>
-            </div>
-            <div className='col-6'>
-              <h1 className='text-center'>{team.full_name}</h1>
-            </div>
-          </div>
-
-
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Avatar src={"/images/logo" + id + ".png"} sx={{ width: 100, height: 100 }} />
-          </div>
-          <p className='text-center'>City: {team.city}</p>
-          <p className='text-center'>Conference: {team.conference}</p>
-          <p className='text-center'>Division: {team.division}</p>
-          <p className='text-center'>Abbreviation: {team.abbreviation}</p>
-          {games.length > 0 ? <div className='text-center'>     {games.map((game) => (
-            <p key={game.id}>The team is playing against {team.full_name === games[0].home_team.full_name ? games[0].visitor_team.full_name : games[0].home_team.full_name} right now! Click <Link to={`/match/${games[0].id}/${games[0].home_team.id}/${games[0].visitor_team.id}/${games[0].home_team.full_name}/${games[0].visitor_team.full_name}`}>here</Link> to see the stats </p>
-          ))} </div> : <p></p>}
+          <Games id={id} />
         </div>
-      )}
-      <div>
-        <Games id={id} />
-      </div>
-    </div>
-  );
+      </>
+    )}
+  </div>
+);
 }
 
 export default Team

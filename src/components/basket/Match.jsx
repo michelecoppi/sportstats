@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Avatar } from '@mui/material';
+import Spinner from '../Spinner.jsx';
 import './table.css';
 
 
@@ -32,7 +33,7 @@ const Match = () => {
 
 
       function formatGame(game) {
-        return `Game of ${game.date}: ${game.home_team_score} - ${game.visitor_team_score}`;
+        return `${game.postseason? "Playoff" : "Regular season"} Game of ${game.date}: ${game.home_team_score} - ${game.visitor_team_score}`;
       }
 
 
@@ -45,7 +46,7 @@ const Match = () => {
         const game = formatGame(item.game);
         return `${player} scored ${points} points, grabbed ${rebounds} rebounds and made ${assists} assist in the match ${team} (${game}).`;
       }
-      const inputData = response.data.data.map(formatData).join('\n') + " generate a description of the match with all these stats without *";
+      const inputData = response.data.data.map(formatData).join('\n') + " generate a description of the match with all these stats without using * symbol";
       const iaOptions = {
         method: 'GET',
         url: 'https://europe-west1-sportstats-42976.cloudfunctions.net/getGeminiResponse',
@@ -100,7 +101,9 @@ const Match = () => {
 
 
   return (
-    <div className="container">
+    <div>
+      {(players.length === 0 || gameDescription==='') ?( <Spinner></Spinner>):(
+        <div className="container">
       <div className="table-wrapper">
         <div className="table-container" >
           <div className="table-title">
@@ -148,6 +151,8 @@ const Match = () => {
         <h3>Game Description</h3>
         <p>{gameDescription}</p>
       </div>
+      </div>
+      )}
     </div>
   )
 }
